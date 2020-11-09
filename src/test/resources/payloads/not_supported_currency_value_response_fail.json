@@ -1,0 +1,43 @@
+{
+  "timestamp": "2020-10-29T10:00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Validation failed for object='transactionsSummaryRequest'. Error count: 1",
+  "errors": [
+    {
+      "codes": [
+        "Pattern.transactionsSummaryRequest.clients.client[0].balance.total",
+        "Pattern.transactionsSummaryRequest.clients.client.balance.total",
+        "Pattern.clients.client[0].balance.total",
+        "Pattern.clients.client.balance.total",
+        "Pattern.total",
+        "Pattern.java.lang.String",
+        "Pattern"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "transactionsSummaryRequest.clients.client[0].balance.total",
+            "clients.client[0].balance.total"
+          ],
+          "defaultMessage": "clients.client[0].balance.total",
+          "code": "clients.client[0].balance.total"
+        },
+        [],
+        {
+          "defaultMessage": "^([-+] ?)?[0-9]+(,[0-9]+)?$",
+          "codes": [
+            "^([-+] ?)?[0-9]+(,[0-9]+)?$"
+          ]
+        }
+      ],
+      "defaultMessage": "must match \"^([-+] ?)?[0-9]+(,[0-9]+)?$\"",
+      "objectName": "transactionsSummaryRequest",
+      "field": "clients.client[0].balance.total",
+      "rejectedValue": "-12110.89",
+      "bindingFailure": false,
+      "code": "Pattern"
+    }
+  ],
+  "path": "/bankingtransactions/summary"
+}

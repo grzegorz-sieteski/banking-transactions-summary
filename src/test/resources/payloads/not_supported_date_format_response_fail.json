@@ -1,0 +1,45 @@
+{
+  "timestamp": "2020-10-29T10:00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Validation failed for object='transactionsSummaryRequest'. Error count: 1",
+  "errors": [
+    {
+      "codes": [
+        "Pattern.transactionsSummaryRequest.clients.client[0].transactions[0].date",
+        "Pattern.transactionsSummaryRequest.clients.client[0].transactions.date",
+        "Pattern.transactionsSummaryRequest.clients.client.transactions.date",
+        "Pattern.clients.client[0].transactions[0].date",
+        "Pattern.clients.client[0].transactions.date",
+        "Pattern.clients.client.transactions.date",
+        "Pattern.date",
+        "Pattern.java.lang.String",
+        "Pattern"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "transactionsSummaryRequest.clients.client[0].transactions[0].date",
+            "clients.client[0].transactions[0].date"
+          ],
+          "defaultMessage": "clients.client[0].transactions[0].date",
+          "code": "clients.client[0].transactions[0].date"
+        },
+        [],
+        {
+          "defaultMessage": "\\d{2}\\.\\d{2}\\.\\d{4}",
+          "codes": [
+            "\\d{2}\\.\\d{2}\\.\\d{4}"
+          ]
+        }
+      ],
+      "defaultMessage": "must match \"\\d{2}\\.\\d{2}\\.\\d{4}\"",
+      "objectName": "transactionsSummaryRequest",
+      "field": "clients.client[0].transactions[0].date",
+      "rejectedValue": "04-05-2020",
+      "bindingFailure": false,
+      "code": "Pattern"
+    }
+  ],
+  "path": "/bankingtransactions/summary"
+}

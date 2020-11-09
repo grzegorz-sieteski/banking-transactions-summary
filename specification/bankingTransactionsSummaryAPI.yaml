@@ -1,0 +1,178 @@
+openapi: "3.0.3"
+info:
+  version: 1.0.0
+  title: Banking transactions summary app
+paths:
+  /bankingtransactions/summary:
+    post:
+      operationId: createTransactionsSummary
+      tags:
+        - transactions
+      requestBody:
+        description: for given client transaction create summary balance, totalExpenses, totalRevenues, totalTurnover
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsSummaryRequest'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionsSummaryResponse"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    TransactionsSummaryRequest:
+      type: object
+      description: Clients
+      required:
+        - clients
+      properties:
+        clients:
+          $ref: "#/components/schemas/Clients"
+    TransactionsSummaryResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/TransactionsSummary"
+
+    TransactionsSummary:
+      type: object
+      description: Client transaction summary
+      properties:
+        info:
+          $ref: "#/components/schemas/Info"
+        balance:
+          $ref: "#/components/schemas/Balance"
+        summary:
+          $ref: "#/components/schemas/Summary"
+
+    Clients:
+      type: object
+      required:
+        - client
+      properties:
+        client:
+          type: array
+          items:
+            $ref: "#/components/schemas/Client"
+    Client:
+      type: object
+      required:
+        - info
+        - balance
+        - transactions
+      properties:
+        info:
+          $ref: "#/components/schemas/Info"
+        balance:
+          $ref: "#/components/schemas/Balance"
+        transactions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Transaction"
+    Info:
+      type: object
+      required:
+        - name
+        - surname
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        country:
+          type: string
+    Balance:
+      type: object
+      required:
+        - total
+        - currency
+        - date
+      properties:
+        total:
+          type: string
+          pattern: ^([-+] ?)?[0-9]+(,[0-9]+)?$
+          example: "2000,60"
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+        date:
+          type: string
+          pattern: \d{2}\.\d{2}\.\d{4}
+          example: "06.05.2020"
+    Transaction:
+      type: object
+      required:
+        - type
+        - description
+        - date
+        - value
+        - currency
+      properties:
+        type:
+          type: string
+          enum:
+            - income
+            - outcome
+        description:
+          type: string
+        date:
+          type: string
+          pattern: \d{2}\.\d{2}\.\d{4}
+          example: "06.05.2020"
+        value:
+          type: string
+          pattern: ^([-+] ?)?[0-9]+(,[0-9]+)?$
+          example: "-2000,60"
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+
+    Summary:
+      type: object
+      required:
+        - name
+        - surname
+      properties:
+        totalExpenses:
+          type: string
+        totalRevenues:
+          type: string
+        totalTurnover:
+          type: string
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

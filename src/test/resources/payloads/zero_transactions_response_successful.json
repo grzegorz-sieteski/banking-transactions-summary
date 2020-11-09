@@ -1,0 +1,37 @@
+[
+  {
+    "info": {
+      "name": "Tomasz",
+      "surname": "Karcznski"
+    },
+    "balance": {
+      "total": "12110,00",
+      "currency": "PLN",
+      "date": "29.10.2020"
+    },
+    "summary": {
+      "totalExpenses": "0,00",
+      "totalRevenues": "0,00",
+      "totalTurnover": "0,00",
+      "currency": "PLN"
+    }
+  },
+  {
+    "info": {
+      "name": "Natalia",
+      "surname": "Nowak",
+      "country": "Poland"
+    },
+    "balance": {
+      "total": "6750,00",
+      "currency": "PLN",
+      "date": "29.10.2020"
+    },
+    "summary": {
+      "totalExpenses": "0,00",
+      "totalRevenues": "0,00",
+      "totalTurnover": "0,00",
+      "currency": "PLN"
+    }
+  }
+]
