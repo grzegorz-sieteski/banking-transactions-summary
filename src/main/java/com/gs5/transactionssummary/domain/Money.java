@@ -66,8 +66,8 @@ public final class Money {
     }
 
     private static void validateFormat(String value) {
-        if (!value.matches("^([-+] ?)?[0-9]+(,[0-9]+)?$"))
-            throw new IllegalArgumentException("Money value must be in format *d.dd : " + value);
+        if (!value.matches("^([-+] ?)?[0-9]+(,[0-9]{2})?$"))
+            throw new IllegalArgumentException("Money value must be in format *d.dd (example 10,20) but it is: " + value);
     }
 
     public static Money from(MonetaryAmount monetaryAmount) {

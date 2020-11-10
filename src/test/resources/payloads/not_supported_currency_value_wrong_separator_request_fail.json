@@ -7,7 +7,7 @@
           "surname": "Karcznski"
         },
         "balance": {
-          "total": "-12110,89888",
+          "total": "-12110,89",
           "currency": "USD",
           "date": "01.05.2020"
         },
@@ -16,7 +16,7 @@
             "type": "income",
             "description": "salary",
             "date": "04.05.2020",
-            "value": "7500,88",
+            "value": "7500.88",
             "currency": "USD"
           },
           {

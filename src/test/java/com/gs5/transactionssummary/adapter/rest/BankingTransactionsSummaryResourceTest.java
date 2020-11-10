@@ -65,8 +65,8 @@ class BankingTransactionsSummaryResourceTest {
                 Arguments.of("transactionsSummaryRequest_not_present_request_fail.json", "transactionsSummaryRequest_not_present_response_fail.json", HttpStatus.BAD_REQUEST),
                 Arguments.of("not_supported_currency_request_fail.json", "not_supported_currency_response_fail.json", HttpStatus.BAD_REQUEST),
                 Arguments.of("not_supported_date_format_request_fail.json", "not_supported_date_format_response_fail.json", HttpStatus.BAD_REQUEST),
+                Arguments.of("not_supported_currency_value_wrong_separator_request_fail.json", "not_supported_currency_value_wrong_separator_response_fail.json", HttpStatus.BAD_REQUEST),
                 Arguments.of("not_supported_currency_value_request_fail.json", "not_supported_currency_value_response_fail.json", HttpStatus.BAD_REQUEST)
-
 
         );
     }

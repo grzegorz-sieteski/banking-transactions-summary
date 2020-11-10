@@ -25,16 +25,16 @@
         },
         [],
         {
-          "defaultMessage": "^([-+] ?)?[0-9]+(,[0-9]+)?$",
+          "defaultMessage": "^([-+] ?)?[0-9]+(,[0-9]{2})?$",
           "codes": [
-            "^([-+] ?)?[0-9]+(,[0-9]+)?$"
+            "^([-+] ?)?[0-9]+(,[0-9]{2})?$"
           ]
         }
       ],
-      "defaultMessage": "must match \"^([-+] ?)?[0-9]+(,[0-9]+)?$\"",
+      "defaultMessage": "must match \"^([-+] ?)?[0-9]+(,[0-9]{2})?$\"",
       "objectName": "transactionsSummaryRequest",
       "field": "clients.client[0].balance.total",
-      "rejectedValue": "-12110.89",
+      "rejectedValue": "-12110,89888",
       "bindingFailure": false,
       "code": "Pattern"
     }
