@@ -66,13 +66,8 @@ class BankingTransactionsSummaryResourceTest {
                 of("transactions_with_account_currency_different_when_transactions_request_successful.json", "transactions_with_account_currency_different_when_transactions_response_successful.json", OK),
                 of("zero_transactions_request_successful.json", "zero_transactions_response_successful.json", OK),
                 of("transactionsSummaryRequest_not_present_request_fail.json", "transactionsSummaryRequest_not_present_response_fail.json", BAD_REQUEST),
-
-            //    of("not_supported_currency_request_fail.json", "not_supported_currency_response_fail.json", BAD_REQUEST),
-
+                of("not_supported_currency_request_fail.json", "not_supported_currency_response_fail.json", BAD_REQUEST),
                 of("not_supported_date_format_request_fail.json", "not_supported_date_format_response_fail.json", BAD_REQUEST)
-             //   of("not_supported_currency_value_wrong_separator_request_fail.json", "not_supported_currency_value_wrong_separator_response_fail.json", BAD_REQUEST),
-            //    of("not_supported_currency_value_request_fail.json", "not_supported_currency_value_response_fail.json", BAD_REQUEST)
-
         );
     }
 

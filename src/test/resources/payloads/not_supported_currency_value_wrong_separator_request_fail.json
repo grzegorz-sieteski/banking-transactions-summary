@@ -16,8 +16,8 @@
             "type": "income",
             "description": "salary",
             "date": "04.05.2020",
-            "value": "7500.88",
-            "currency": "USD"
+            "value": "7500,88",
+            "currency": "DKK"
           },
           {
             "type": "outcome",
