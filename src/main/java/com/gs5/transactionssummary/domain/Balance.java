@@ -18,13 +18,13 @@ public final class Balance {
 
     public Balance recalculate(List<BankingTransaction> transactions, Date recalculationDate) {
         requireNonNull(transactions, "On recalculation balance transactions can't be null!");
-        Money actualTotalBalanceValue = BalanceCalculator.recalculate(total, transactions);
+        final Money actualTotalBalanceValue = BalanceCalculator.recalculate(total, transactions);
         return new Balance(actualTotalBalanceValue, recalculationDate);
     }
 
     public static Balance from(String total, Currency currency, String date) {
-        Date createdDate = Date.from(date);
-        Money money = Money.of(total, currency);
+        final var createdDate = Date.from(date);
+        final var money = Money.of(total, currency);
         return new Balance(money, createdDate);
     }
 }

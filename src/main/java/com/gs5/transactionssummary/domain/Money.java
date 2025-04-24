@@ -58,8 +58,8 @@ public final class Money {
         requireNonNull(currency, "currencyCode in balance can't be null!");
         validateFormat(value);
 
-        String totalInCorrectFormat = value.replace(",", ".");
-        org.javamoney.moneta.Money money = org.javamoney.moneta.Money.of(new BigDecimal(totalInCorrectFormat), currency.name());
+        final var totalInCorrectFormat = value.replace(",", ".");
+        final var money = org.javamoney.moneta.Money.of(new BigDecimal(totalInCorrectFormat), currency.name());
         return new Money(money);
     }
 
@@ -75,8 +75,8 @@ public final class Money {
 
     public static Money zero(Currency currencyCode) {
         requireNonNull(currencyCode, "currency can't be null!");
-        CurrencyUnit currencyUnit = Monetary.getCurrency(currencyCode.name());
-        org.javamoney.moneta.Money money = org.javamoney.moneta.Money.zero(currencyUnit);
+        final var currencyUnit = Monetary.getCurrency(currencyCode.name());
+        final var money = org.javamoney.moneta.Money.zero(currencyUnit);
         return new Money(money);
     }
 }

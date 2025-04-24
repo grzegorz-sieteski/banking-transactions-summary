@@ -52,7 +52,7 @@ public final class Account {
     }
 
     private Currency accountCurrency() {
-        Money total = balance.getTotal();
+        final Money total = balance.getTotal();
         return total.getCurrency();
     }
 

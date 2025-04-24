@@ -3,7 +3,6 @@ package com.gs5.transactionssummary.adapter.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.response.ResponseBodyExtractionOptions;
-import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -72,7 +71,7 @@ class BankingTransactionsSummaryResourceTest {
     }
 
     private String getJson(String fileName) throws IOException {
-        val directory = "payloads/";
+        final var directory = "payloads/";
         return new String(BankingTransactionsSummaryResourceTest.class.getClassLoader().getResourceAsStream(directory + fileName).readAllBytes());
     }
 

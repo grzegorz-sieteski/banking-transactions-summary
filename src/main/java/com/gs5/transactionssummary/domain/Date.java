@@ -42,7 +42,7 @@ public final class Date {
     public static Date from(String date) {
         validateNotNull(date);
         validateDateFormat(date);
-        LocalDate createdDate = LocalDate.parse(date, BALANCE_DATE_STRING_FORMATTER);
+        final var createdDate = LocalDate.parse(date, BALANCE_DATE_STRING_FORMATTER);
         return new Date(createdDate);
     }
 
@@ -56,7 +56,7 @@ public final class Date {
     }
 
     public static Date now(Clock clock) {
-        LocalDate now = LocalDate.now(clock);
+        final var now = LocalDate.now(clock);
         return new Date(now);
     }
 }
