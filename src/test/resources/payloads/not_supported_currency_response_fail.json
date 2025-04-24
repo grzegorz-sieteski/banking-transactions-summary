@@ -2,6 +2,6 @@
   "timestamp": "2020-10-29T10:00:00",
   "status": 400,
   "error": "Bad Request",
-  "message": "JSON parse error: Cannot construct instance of `gs5.bankingtransactions.summary.model.Transaction$CurrencyEnum`, problem: Unexpected value 'DKK'; nested exception is com.fasterxml.jackson.databind.exc.ValueInstantiationException: Cannot construct instance of `gs5.bankingtransactions.summary.model.Transaction$CurrencyEnum`, problem: Unexpected value 'DKK'\n at [Source: (PushbackInputStream); line: 27, column: 25] (through reference chain: gs5.bankingtransactions.summary.model.TransactionsSummaryRequest[\"clients\"]->gs5.bankingtransactions.summary.model.Clients[\"client\"]->java.util.ArrayList[0]->gs5.bankingtransactions.summary.model.Client[\"transactions\"]->java.util.ArrayList[1]->gs5.bankingtransactions.summary.model.Transaction[\"currency\"])",
+  "message": "{\"timestamp\":\"2020-10-29T10:00:00\",\"status\":400,\"error\":\"Bad Request\",\"message\":\"JSON parse error: Cannot construct instance of `gs5.bankingtransactions.summary.model.Transaction$CurrencyEnum`, problem: Unexpected value 'DKK'\",\"path\":\"/bankingtransactions/summary\"}",
   "path": "/bankingtransactions/summary"
 }

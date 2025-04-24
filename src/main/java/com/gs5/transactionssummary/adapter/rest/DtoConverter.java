@@ -13,9 +13,9 @@ public class DtoConverter {
 
 
     public TransactionsSummary convertToTransactionsSummary(BankingTransactionsSummary bts) {
-        val infoDTO = convertToInfoDTO(bts.getClient());
-        val balanceDTO = covertToBalanceDTO(bts.getBalance());
-        val summaryDTO = convertToSummaryDTO(bts);
+        final var infoDTO = convertToInfoDTO(bts.getClient());
+        final var balanceDTO = covertToBalanceDTO(bts.getBalance());
+        final var summaryDTO = convertToSummaryDTO(bts);
         return new TransactionsSummary()
                 .info(infoDTO)
                 .balance(balanceDTO)

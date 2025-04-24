@@ -6,7 +6,7 @@ import java.util.List;
 
 class TotalTurnoverCalculator {
 
-    static final Money calculateTotalTurnover(List<BankingTransaction> transactions, Currency accountCurrency) {
+    static Money calculateTotalTurnover(List<BankingTransaction> transactions, Currency accountCurrency) {
         return transactions.stream()
                 .map(BankingTransaction::getValue)
                 .map(com.gs5.transactionssummary.domain.Money::asMonetaryAmount)

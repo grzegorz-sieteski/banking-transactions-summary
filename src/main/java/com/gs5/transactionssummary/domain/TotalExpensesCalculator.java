@@ -6,7 +6,7 @@ import java.util.List;
 
 class TotalExpensesCalculator {
 
-    static final Money calculateTotalExpenses(List<BankingTransaction> transactions, Currency accountCurrency) {
+    static Money calculateTotalExpenses(List<BankingTransaction> transactions, Currency accountCurrency) {
         return transactions.stream()
                 .filter(BankingTransaction::isOutcome)
                 .map(BankingTransaction::getValue)

@@ -2,17 +2,17 @@
   {
     "info": {
       "name": "Tomasz",
-      "surname": "Karcznski"
+      "surname": "Kot"
     },
     "balance": {
-      "total": "19010,00",
+      "total": "19010.00",
       "currency": "PLN",
       "date": "29.10.2020"
     },
     "summary": {
-      "totalExpenses": "2300,00",
-      "totalRevenues": "9200,00",
-      "totalTurnover": "11500,00",
+      "totalExpenses": "2300.00",
+      "totalRevenues": "9200.00",
+      "totalTurnover": "11500.00",
       "currency": "PLN"
     }
   },
@@ -23,14 +23,14 @@
       "country": "Poland"
     },
     "balance": {
-      "total": "14999,50",
+      "total": "14999.50",
       "currency": "PLN",
       "date": "29.10.2020"
     },
     "summary": {
-      "totalExpenses": "2250,50",
-      "totalRevenues": "10500,00",
-      "totalTurnover": "12750,50",
+      "totalExpenses": "2250.50",
+      "totalRevenues": "10500.00",
+      "totalTurnover": "12750.50",
       "currency": "PLN"
     }
   }

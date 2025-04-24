@@ -19,7 +19,7 @@ class RecalculateBalanceTest {
 
         Balance actualBalance = balance.recalculate(THOMAS_TRANSACTIONS, Date.now(FIXED_CLOCK));
 
-        assertTrue("19010,00".equals(actualBalance.getTotal().asString()));
+        assertTrue("19010.00".equals(actualBalance.getTotal().asString()));
         assertTrue("PLN".equals(actualBalance.getTotal().getCurrencyCode()));
     }
 }

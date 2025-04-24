@@ -23,8 +23,8 @@ class MoneyTest {
 
     private static Stream<Arguments> testCases() {
         return Stream.of(
-                Arguments.of("100,55", Currency.PLN, "100,55", "PLN"),
-                Arguments.of("-100,50", Currency.PLN, "-100,50", "PLN"));
+                Arguments.of("100.55", Currency.PLN, "100.55", "PLN"),
+                Arguments.of("-100.50", Currency.PLN, "-100.50", "PLN"));
     }
 
     @Test

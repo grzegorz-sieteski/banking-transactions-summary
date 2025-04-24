@@ -4,7 +4,7 @@
       {
         "info": {
           "name": "Tomasz",
-          "surname": "Karcznski"
+          "surname": "Kot"
         },
         "balance": {
           "total": "12110",
@@ -72,7 +72,7 @@
             "type": "outcome",
             "description": "transfer",
             "date": "11.05.2020",
-            "value": "1050,50",
+            "value": "1050.50",
             "currency": "PLN"
           }
         ]

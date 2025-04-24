@@ -46,7 +46,7 @@ public final class BankingTransaction {
         return Type.INCOME.equals(type);
     }
 
-    final BankingTransaction changeValue(Money value) {
+    BankingTransaction changeValue(Money value) {
         return BankingTransaction
                 .builder()
                 .type(type)
@@ -57,9 +57,9 @@ public final class BankingTransaction {
     }
 
     public static BankingTransaction from(String type, String description, String date, String value, Currency currency) {
-        val transactionType = Type.valueOf(type.toUpperCase());
-        val money = Money.of(value, currency);
-        val creationDate = Date.from(date);
+        final var transactionType = Type.valueOf(type.toUpperCase());
+        final var money = Money.of(value, currency);
+        final var creationDate = Date.from(date);
         return BankingTransaction
                 .builder()
                 .type(transactionType)

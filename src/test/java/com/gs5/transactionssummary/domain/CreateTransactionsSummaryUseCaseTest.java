@@ -16,9 +16,9 @@ class CreateTransactionsSummaryUseCaseTest {
 
         BankingTransactionsSummary bankingTransactionsSummary = createTransactionsSummaryUseCase.forAccount(TOMAS_KOWALSKI_ACCOUNT);
 
-        assertEquals("2300,00",bankingTransactionsSummary.getTotalExpensesAsString());
-        assertEquals("-570,00",bankingTransactionsSummary.getBalance().getTotal().asString());
-        assertEquals("1700,00",bankingTransactionsSummary.getTotalRevenuesAsString());
-        assertEquals("4000,00",bankingTransactionsSummary.getTotalTurnoverAsString());
+        assertEquals("2300.00",bankingTransactionsSummary.getTotalExpensesAsString());
+        assertEquals("-570.00",bankingTransactionsSummary.getBalance().getTotal().asString());
+        assertEquals("1700.00",bankingTransactionsSummary.getTotalRevenuesAsString());
+        assertEquals("4000.00",bankingTransactionsSummary.getTotalTurnoverAsString());
     }
 }

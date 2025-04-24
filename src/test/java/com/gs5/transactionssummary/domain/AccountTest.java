@@ -17,9 +17,9 @@ class AccountTest {
                 .exchangeTransactionWithOtherCurrencyToAccountCurrency(currencyExchange)
                 .generateBankingTransactionsSummary();
 
-        assertEquals("2250,50", bankingTransactionsSummary.getTotalExpensesAsString());
-        assertEquals("8379,50", bankingTransactionsSummary.getBalance().getTotal().asString());
-        assertEquals("10500,00", bankingTransactionsSummary.getTotalRevenuesAsString());
-        assertEquals("12750,50", bankingTransactionsSummary.getTotalTurnoverAsString());
+        assertEquals("2250.50", bankingTransactionsSummary.getTotalExpensesAsString());
+        assertEquals("8379.50", bankingTransactionsSummary.getBalance().getTotal().asString());
+        assertEquals("10500.00", bankingTransactionsSummary.getTotalRevenuesAsString());
+        assertEquals("12750.50", bankingTransactionsSummary.getTotalTurnoverAsString());
     }
 }

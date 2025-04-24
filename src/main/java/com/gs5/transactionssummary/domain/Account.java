@@ -1,10 +1,7 @@
 package com.gs5.transactionssummary.domain;
 
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.val;
 
-import javax.money.CurrencyUnit;
 import java.time.Clock;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +26,7 @@ public final class Account {
     }
 
 
-    public final BankingTransactionsSummary generateBankingTransactionsSummary() {
+    public BankingTransactionsSummary generateBankingTransactionsSummary() {
         return BankingTransactionsSummary
                 .builder()
                 .client(client)
@@ -45,8 +42,8 @@ public final class Account {
     }
 
     private List<BankingTransaction> getTransactionFromNowToLastBalanceCreation() {
-        val lastBalanceDate = balance.getDate();
-        val now = Date.now(clock);
+        final var lastBalanceDate = balance.getDate();
+        final var now = Date.now(clock);
         return extractTransactionsInGivenRange(transactions, lastBalanceDate, now);
     }
 
@@ -67,15 +64,15 @@ public final class Account {
         return TotalTurnoverCalculator.calculateTotalTurnover(transactions, accountCurrency());
     }
 
-    final Account exchangeTransactionWithOtherCurrencyToAccountCurrency(CurrencyExchange currencyExchange) {
-        final List<BankingTransaction> transactionsExchanged = new ArrayList<>();
-        val accountTotalBalance = balance.getTotal();
+    Account exchangeTransactionWithOtherCurrencyToAccountCurrency(CurrencyExchange currencyExchange) {
+        final var transactionsExchanged = new ArrayList<BankingTransaction>();
+        final var accountTotalBalance = balance.getTotal();
         transactions.forEach(transaction -> {
             if (accountTotalBalance.getCurrencyUnit().equals(transaction.getValue().getCurrencyUnit())) {
                 transactionsExchanged.add(transaction);
             } else {
-                val exchangedMoney = currencyExchange.exchange(transaction.getValue(), accountTotalBalance.getCurrency());
-                val bankingTransactionWithConvertedValue = transaction.changeValue(exchangedMoney);
+                final var exchangedMoney = currencyExchange.exchange(transaction.getValue(), accountTotalBalance.getCurrency());
+                final var bankingTransactionWithConvertedValue = transaction.changeValue(exchangedMoney);
                 transactionsExchanged.add(bankingTransactionWithConvertedValue);
             }
         });
@@ -89,7 +86,7 @@ public final class Account {
                 .build();
     }
 
-    final Account filterTransactionFromNowToBalanceCreationDate() {
+    Account filterTransactionFromNowToBalanceCreationDate() {
         return Account
                 .builder()
                 .clock(clock)

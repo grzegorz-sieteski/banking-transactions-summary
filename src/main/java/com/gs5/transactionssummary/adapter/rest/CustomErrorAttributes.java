@@ -1,6 +1,6 @@
 package com.gs5.transactionssummary.adapter.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 @Component
+@AllArgsConstructor
 public class CustomErrorAttributes extends DefaultErrorAttributes {
-    @Autowired private Clock clock;
+    private final Clock clock;
 
     @Override
     public Map<String, Object> getErrorAttributes(WebRequest webRequest, ErrorAttributeOptions options){

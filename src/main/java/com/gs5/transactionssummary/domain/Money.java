@@ -53,8 +53,6 @@ public final class Money {
         return new Money(value.negate());
     }
 
-
-
     public static Money of(String value, Currency currency) {
         requireNonNull(value, "total in balance can't be null!");
         requireNonNull(currency, "currencyCode in balance can't be null!");
@@ -66,8 +64,8 @@ public final class Money {
     }
 
     private static void validateFormat(String value) {
-        if (!value.matches("^([-+] ?)?[0-9]+(,[0-9]{2})?$"))
-            throw new IllegalArgumentException("Money value must be in format *d.dd (example 10,20) but it is: " + value);
+        if (!value.matches("^([-+] ?)?[0-9]+(.[0-9]{2})?$"))
+            throw new IllegalArgumentException("Money value must be in format *d.dd (example 10.20) but it is: " + value);
     }
 
     public static Money from(MonetaryAmount monetaryAmount) {
