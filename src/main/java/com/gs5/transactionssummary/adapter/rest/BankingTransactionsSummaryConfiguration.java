@@ -2,6 +2,7 @@ package com.gs5.transactionssummary.adapter.rest;
 
 import com.gs5.transactionssummary.adapter.database.AccountsAdapterSql;
 import com.gs5.transactionssummary.adapter.rest.converter.DomainConverter;
+import com.gs5.transactionssummary.adapter.rest.converter.TransactionSummaryDtoConverter;
 import com.gs5.transactionssummary.domain.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
