@@ -1,6 +1,7 @@
 package com.gs5.transactionssummary.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.Clock;
 import java.util.ArrayList;
@@ -10,15 +11,10 @@ import static com.gs5.transactionssummary.domain.TransactionsExtractor.extractTr
 import static java.util.Objects.requireNonNull;
 
 
-public final class Account {
-
-    private final Clock clock;
-    private final Client client;
-    private final Balance balance;
-    private final List<BankingTransaction> transactions;
+public record Account(Client client, Balance balance, List<BankingTransaction> transactions, Clock clock) {
 
     @Builder
-    private Account(Client client, Balance balance, List<BankingTransaction> transactions, Clock clock) {
+    public Account(Client client, Balance balance, List<BankingTransaction> transactions, Clock clock) {
         this.client = requireNonNull(client, "Account client can't be null!");
         this.balance = requireNonNull(balance, "Account balance can't be null!");
         this.transactions = requireNonNull(transactions, "Account transactions can't be null!");

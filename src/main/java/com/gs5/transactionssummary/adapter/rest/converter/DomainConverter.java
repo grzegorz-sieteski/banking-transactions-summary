@@ -1,4 +1,4 @@
-package com.gs5.transactionssummary.adapter.rest;
+package com.gs5.transactionssummary.adapter.rest.converter;
 
 import com.gs5.transactionssummary.domain.Account;
 import com.gs5.transactionssummary.domain.Balance;
@@ -22,7 +22,7 @@ public class DomainConverter {
     }
 
 
-    Account convertToDomain(gs5.bankingtransactions.summary.model.Client client) {
+    public Account convertToDomain(gs5.bankingtransactions.summary.model.Client client) {
         final var clientDomain = convertToClient(client.getInfo());
         final var balanceDomain = convertToBalance(client.getBalance());
         final var bankingTransactionsDomain = convertToBankingTransactions(client.getTransactions());
@@ -36,6 +36,7 @@ public class DomainConverter {
 
     private Client convertToClient(Info info) {
         return Client.builder()
+                .id(info.getClientId())
                 .name(info.getName())
                 .surname(info.getSurname())
                 .country(info.getCountry())

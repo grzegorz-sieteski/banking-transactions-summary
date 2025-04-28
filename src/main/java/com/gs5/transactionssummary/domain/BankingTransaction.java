@@ -1,11 +1,15 @@
 package com.gs5.transactionssummary.domain;
 
+import gs5.bankingtransactions.summary.model.Transaction;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.val;
 
 import static java.util.Objects.requireNonNull;
 
+@Getter
 public final class BankingTransaction {
+
 
     enum Type {
         INCOME,
@@ -26,14 +30,6 @@ public final class BankingTransaction {
         this.value = requireNonNull(value, "Transaction value can't be null!");
     }
 
-    Money getValue() {
-        return value;
-    }
-
-    Date getDate() {
-        return date;
-    }
-
     Money getValueIfOutcomeNegateIt() {
         return isOutcome() ? value.negate() : value;
     }
@@ -44,6 +40,10 @@ public final class BankingTransaction {
 
     boolean isIncome() {
         return Type.INCOME.equals(type);
+    }
+
+    public String getTypeAsString() {
+        return type.name().toLowerCase();
     }
 
     BankingTransaction changeValue(Money value) {

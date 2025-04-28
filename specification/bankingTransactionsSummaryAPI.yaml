@@ -29,6 +29,59 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /bankingtransactions/create-or-update-accounts:
+    post:
+      operationId: createOrUpdateAccounts
+      tags:
+        - accounts
+      summary: Create or update a list of client accounts
+      requestBody:
+        description: Create or update accounts with balance
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountsRequest'
+      responses:
+        '200':
+          description: Successfully created or updated client accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountsResponse'
+        '400':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /bankingtransactions/accounts:
+    get:
+      operationId: getAccounts
+      tags:
+        - accounts
+      summary: Get all client accounts
+      responses:
+        '200':
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   schemas:
     TransactionsSummaryRequest:
@@ -85,6 +138,9 @@ components:
         - name
         - surname
       properties:
+        clientId:
+          type: integer
+          format: int64
         name:
           type: string
         surname:
@@ -164,6 +220,40 @@ components:
             - USD
             - EUR
             - CHF
+    Accounts:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+
+    Account:
+      type: object
+      properties:
+        client:
+          $ref: '#/components/schemas/Client'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+
+    AccountsRequest:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+
+    AccountsResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Accounts created or updated successfully."
 
     Error:
       type: object

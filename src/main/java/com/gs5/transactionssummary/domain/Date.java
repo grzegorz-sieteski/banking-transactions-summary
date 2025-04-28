@@ -19,7 +19,7 @@ public final class Date {
     }
 
 
-    LocalDate asLocalDate() {
+    public LocalDate asLocalDate() {
         return date;
     }
 
