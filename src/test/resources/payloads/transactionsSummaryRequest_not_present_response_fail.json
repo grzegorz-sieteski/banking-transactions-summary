@@ -1,0 +1,32 @@
+{
+  "timestamp": "2020-10-29T10:00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Validation failed for object='transactionsSummaryRequest'. Error count: 1",
+  "errors": [
+    {
+      "codes": [
+        "NotNull.transactionsSummaryRequest.clients",
+        "NotNull.clients",
+        "NotNull.gs5.bankingtransactions.summary.model.Clients",
+        "NotNull"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "transactionsSummaryRequest.clients",
+            "clients"
+          ],
+          "defaultMessage": "clients",
+          "code": "clients"
+        }
+      ],
+      "defaultMessage": "must not be null",
+      "objectName": "transactionsSummaryRequest",
+      "field": "clients",
+      "bindingFailure": false,
+      "code": "NotNull"
+    }
+  ],
+  "path": "/bankingtransactions/summary"
+}

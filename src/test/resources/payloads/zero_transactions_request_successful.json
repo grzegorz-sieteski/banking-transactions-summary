@@ -1,0 +1,31 @@
+{
+  "clients": {
+    "client": [
+      {
+        "info": {
+          "name": "Tomasz",
+          "surname": "Kot"
+        },
+        "balance": {
+          "total": "12110",
+          "currency": "PLN",
+          "date": "01.05.2020"
+        },
+        "transactions": []
+      },
+      {
+        "info": {
+          "name": "Natalia",
+          "surname": "Nowak",
+          "country": "Poland"
+        },
+        "balance": {
+          "total": "6750",
+          "currency": "PLN",
+          "date": "01.05.2020"
+        },
+        "transactions": []
+      }
+    ]
+  }
+}

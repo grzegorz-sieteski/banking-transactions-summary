@@ -1,0 +1,268 @@
+openapi: "3.0.3"
+info:
+  version: 1.0.0
+  title: Banking transactions summary app
+paths:
+  /bankingtransactions/summary:
+    post:
+      operationId: createTransactionsSummary
+      tags:
+        - transactions
+      requestBody:
+        description: for given client transaction create summary balance, totalExpenses, totalRevenues, totalTurnover
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsSummaryRequest'
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TransactionsSummaryResponse"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /bankingtransactions/create-or-update-accounts:
+    post:
+      operationId: createOrUpdateAccounts
+      tags:
+        - accounts
+      summary: Create or update a list of client accounts
+      requestBody:
+        description: Create or update accounts with balance
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountsRequest'
+      responses:
+        '200':
+          description: Successfully created or updated client accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountsResponse'
+        '400':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /bankingtransactions/accounts:
+    get:
+      operationId: getAccounts
+      tags:
+        - accounts
+      summary: Get all client accounts
+      responses:
+        '200':
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    TransactionsSummaryRequest:
+      type: object
+      description: Clients
+      required:
+        - clients
+      properties:
+        clients:
+          $ref: "#/components/schemas/Clients"
+    TransactionsSummaryResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/TransactionsSummary"
+
+    TransactionsSummary:
+      type: object
+      description: Client transaction summary
+      properties:
+        info:
+          $ref: "#/components/schemas/Info"
+        balance:
+          $ref: "#/components/schemas/Balance"
+        summary:
+          $ref: "#/components/schemas/Summary"
+
+    Clients:
+      type: object
+      required:
+        - client
+      properties:
+        client:
+          type: array
+          items:
+            $ref: "#/components/schemas/Client"
+    Client:
+      type: object
+      required:
+        - info
+        - balance
+        - transactions
+      properties:
+        info:
+          $ref: "#/components/schemas/Info"
+        balance:
+          $ref: "#/components/schemas/Balance"
+        transactions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Transaction"
+    Info:
+      type: object
+      required:
+        - name
+        - surname
+      properties:
+        clientId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        surname:
+          type: string
+        country:
+          type: string
+    Balance:
+      type: object
+      required:
+        - total
+        - currency
+        - date
+      properties:
+        total:
+          type: string
+          pattern: ^([-+] ?)?[0-9]+(.[0-9]{2})?$
+          example: "2000.60"
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+        date:
+          type: string
+          pattern: \d{2}\.\d{2}\.\d{4}
+          example: "06.05.2020"
+    Transaction:
+      type: object
+      required:
+        - type
+        - description
+        - date
+        - value
+        - currency
+      properties:
+        type:
+          type: string
+          enum:
+            - income
+            - outcome
+        description:
+          type: string
+        date:
+          type: string
+          pattern: \d{2}\.\d{2}\.\d{4}
+          example: "06.05.2020"
+        value:
+          type: string
+          pattern: ^([-+] ?)?[0-9]+(.[0-9]{2})?$
+          example: "-2000.60"
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+
+    Summary:
+      type: object
+      required:
+        - name
+        - surname
+      properties:
+        totalExpenses:
+          type: string
+        totalRevenues:
+          type: string
+        totalTurnover:
+          type: string
+        currency:
+          type: string
+          enum:
+            - PLN
+            - USD
+            - EUR
+            - CHF
+    Accounts:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+
+    Account:
+      type: object
+      properties:
+        client:
+          $ref: '#/components/schemas/Client'
+        balance:
+          $ref: '#/components/schemas/Balance'
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+
+    AccountsRequest:
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+
+    AccountsResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Accounts created or updated successfully."
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

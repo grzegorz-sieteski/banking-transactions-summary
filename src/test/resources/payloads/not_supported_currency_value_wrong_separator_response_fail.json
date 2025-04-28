@@ -1,0 +1,45 @@
+{
+  "timestamp": "2020-10-29T10:00:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Validation failed for object='transactionsSummaryRequest'. Error count: 1",
+  "errors": [
+    {
+      "codes": [
+        "Pattern.transactionsSummaryRequest.clients.client[0].transactions[0].value",
+        "Pattern.transactionsSummaryRequest.clients.client[0].transactions.value",
+        "Pattern.transactionsSummaryRequest.clients.client.transactions.value",
+        "Pattern.clients.client[0].transactions[0].value",
+        "Pattern.clients.client[0].transactions.value",
+        "Pattern.clients.client.transactions.value",
+        "Pattern.value",
+        "Pattern.java.lang.String",
+        "Pattern"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "transactionsSummaryRequest.clients.client[0].transactions[0].value",
+            "clients.client[0].transactions[0].value"
+          ],
+          "defaultMessage": "clients.client[0].transactions[0].value",
+          "code": "clients.client[0].transactions[0].value"
+        },
+        [],
+        {
+          "defaultMessage": "^([-+] ?)?[0-9]+(.[0-9]{2})?$",
+          "codes": [
+            "^([-+] ?)?[0-9]+(.[0-9]{2})?$"
+          ]
+        }
+      ],
+      "defaultMessage": "must match \"^([-+] ?)?[0-9]+(.[0-9]{2})?$\"",
+      "objectName": "transactionsSummaryRequest",
+      "field": "clients.client[0].transactions[0].value",
+      "rejectedValue": "7500.88",
+      "bindingFailure": false,
+      "code": "Pattern"
+    }
+  ],
+  "path": "/bankingtransactions/summary"
+}
