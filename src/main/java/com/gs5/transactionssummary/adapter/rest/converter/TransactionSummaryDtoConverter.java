@@ -11,7 +11,7 @@ public class TransactionSummaryDtoConverter {
 
     public TransactionsSummary convertToTransactionsSummary(BankingTransactionsSummary bts) {
         final var infoDTO = convertToInfoDTO(bts.getClient());
-        final var balanceDTO = BalanceDtoConverter.covertToBalanceDTO(bts.getBalance());
+        final var balanceDTO = BalanceDtoConverter.convertToBalanceDTO(bts.getBalance());
         final var summaryDTO = convertToSummaryDTO(bts);
         return new TransactionsSummary()
                 .info(infoDTO)

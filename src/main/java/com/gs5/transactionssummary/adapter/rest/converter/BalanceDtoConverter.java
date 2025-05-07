@@ -4,7 +4,7 @@ import com.gs5.transactionssummary.domain.Balance;
 import com.gs5.transactionssummary.domain.Money;
 
 public class BalanceDtoConverter {
-    public static gs5.bankingtransactions.summary.model.Balance covertToBalanceDTO(Balance balance) {
+    public static gs5.bankingtransactions.summary.model.Balance convertToBalanceDTO(Balance balance) {
         Money balanceDomainTotal = balance.getTotal();
         return new gs5.bankingtransactions.summary.model.Balance()
                 .currency(gs5.bankingtransactions.summary.model.Balance.CurrencyEnum.fromValue(balanceDomainTotal.getCurrencyCode()))

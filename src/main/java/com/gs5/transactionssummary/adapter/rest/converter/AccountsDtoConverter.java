@@ -23,7 +23,7 @@ public class AccountsDtoConverter {
         return new Account()
                 .client(new Client()
                         .info(InfoDtoConverter.convertToInfoDTO(account.client()))
-                        .balance(BalanceDtoConverter.covertToBalanceDTO(account.balance()))
+                        .balance(BalanceDtoConverter.convertToBalanceDTO(account.balance()))
                         .transactions(convertTransactions(account.transactions())));
     }
 
